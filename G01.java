@@ -4,12 +4,37 @@ import java.util.Scanner;
 
 public class G01 {
     
+    private String userName;
+    private int mod;
+    
+    public G01 (String name, int modNum) {
+        userName = name;
+        mod = modNum;
+    }
+    
+    public void setUserName(String name){
+        userName = name;
+    }
+    
+    public String getUserName(){
+        return userName;
+    }
+    
+    public void setMod(int modNum){
+        mod = modNum;
+    }
+    
+    public int getMod(){
+        return mod;
+    }
+    
     Scanner input = new Scanner(System.in);
     
     public void productDiscount(){
         //Receives: Paid Price, Price
         //Returns: Off
         System.out.println("G01 - E01");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
         float paidPrice, price, discounted;
         
         System.out.printf("Price: ");
@@ -28,6 +53,7 @@ public class G01 {
         //Returns: Addition, Substraction, Multiplication and Division
         //of the two specified values
         System.out.println("G01 - E02");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
         int val, val1;
         float add, sub, mul, div;
         
@@ -70,6 +96,7 @@ public class G01 {
         //Receives: Base and Height
         //Returns: Triangle Rectangle's perimeter
         System.out.println("G01 - E03");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
         float base, height, perimeter;
         
         System.out.print("Base: ");
@@ -86,6 +113,7 @@ public class G01 {
         //Receives: Float Centimeter
         //Returns: Float Inch
         System.out.println("G01 - E04");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
         float cm, INCH;
         
         System.out.print("Centimeter: ");
@@ -100,6 +128,7 @@ public class G01 {
         //Receives: radio
         //Returns: perimeter, diameter
         System.out.println("G01 - E05");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
         float radio, perimeter, diameter;
         
         System.out.print("Circle Radio: ");
@@ -112,7 +141,66 @@ public class G01 {
                 radio, perimeter, diameter);
     }
     
-    public void cilindro(){
-        System.out.println("G01 - E05");
+    public void cilinder(){
+        //Receives: baseRadio, height
+        //Returns: area, volume
+        System.out.println("G01 - E06");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        float baseRadio, height, baseArea, area, volume;
+        
+        System.out.print("Cilinder Base Radio: ");
+        baseRadio = input.nextFloat();
+        
+        System.out.print("Cilinder Height: ");
+        height = input.nextFloat();
+        
+        area = (float) (Math.PI * Math.pow(baseRadio, 2));
+        volume = (float) ((Math.PI * Math.pow(baseRadio, 2)) * height);
+        
+        System.out.println("Cilinder: ");
+        System.out.printf("Radio: %.2f\n", baseRadio);
+        System.out.printf("Height: %.2f\n", height);
+        System.out.printf("Area: %.2f\n", area);
+        System.out.printf("Volumne: %.2f\n", volume);
+    }
+    
+    public void pitagoras(){
+        //Receives adjacentLeg, oppositeLeg
+        //Returns hypotenuse
+        System.out.println("G01 - E07");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        float adj, opp, hyp;
+        
+        System.out.print("Adjcent Leg: ");
+        adj = input.nextFloat();
+        
+        System.out.print("Opposite Leg: ");
+        opp = input.nextFloat();
+        
+        hyp = (float) Math.sqrt((Math.pow(opp, 2)) + (Math.pow(adj, 2)));
+        
+        System.out.printf("Hypotenuse is %.2f for a Triangle Rectangle with values: \n"
+                + "Adjacent Leg: %.2f \n"
+                + "Opposite Leg: %.2f \n", hyp, adj, opp);
+    }
+    
+    public void timeConverter(){
+        //Receives secs
+        //Returns mins + secs
+        System.out.println("G01 - E08 - FINAL");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        int secs, hours, remainder, mins, val;
+        
+        System.out.print("Seconds: ");
+        val = input.nextInt();
+        
+        hours = val / 3600;
+        remainder = val - hours * 3600;
+        mins = remainder / 60;
+        remainder = remainder - mins * 60;
+        secs = remainder;
+        
+        System.out.printf("%d:%d:%d",
+                hours, mins, secs);
     }
 }
