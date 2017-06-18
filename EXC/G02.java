@@ -65,5 +65,31 @@ public class G02 {
                 side, perimeter);
     }
     
+    public void averagePrice(){
+        //Receives: Price 1, Price 2, Price 3
+        //Returns: Average Price
+        System.out.println("G02 - E03");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        float price1, price2, price3, average;
+        
+        System.out.print("Price 1: ");
+        price1 = input.nextFloat();
+        
+        System.out.print("Price 2: ");
+        price2 = input.nextFloat();
+        
+        System.out.print("Price 3: ");
+        price3 = input.nextFloat();
+        
+        average = ((price1 + price2 + price3) / 3);
+        System.out.println("Average Price is: " + average);
+    }
+    
+    public void divideNumbers(){
+        //Receives: Number 1, Number 2
+        //Returns: The highest number divided into the lowest
+        System.out.println("G02 - E04");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+    }
     
 }
