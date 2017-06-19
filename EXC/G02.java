@@ -46,8 +46,8 @@ public class G02 {
         
         area = base * height;
         
-        System.out.printf("A Rectangle: \n Base: %d\n Height: %d\n Perimeter: %d\n",
-                base, height, area);
+        System.out.printf("A Rectangle: \n Base: %d\n Height: %d\n "
+                + "Perimeter: %d\n", base, height, area);
     }
     
     public void squareArea(){
@@ -182,8 +182,8 @@ public class G02 {
                 System.out.printf("%s grade was %.2f, %s passes!\n",
                         name, grade, name);
             } else if ((grade < 6) && (grade > 3)){
-                System.out.printf("%s grade was %.2f, %s will have to repeat the"
-                        + " test on February 10th!\n",
+                System.out.printf("%s grade was %.2f, %s will have to "
+                        + "repeat the test on February 10th!\n",
                         name, grade, name);
             } else if (grade <= 3){
                 System.out.printf("%s grade was %.2f, %s will have to repeat!"
@@ -279,14 +279,16 @@ public class G02 {
                 if (sex == 1){
                     f++;
                     voters++;
-                    System.out.println("1 More Woman is voting! Total woman voting: " + f);
+                    System.out.println("1 More Woman is voting! Total "
+                            + "woman voting: " + f);
                     System.out.println("Voters: " + voters);
                 }
                 
                 else if (sex == 0){
                     m++;
                     voters++;
-                    System.out.println("1 More man is voting! Total men voting: " + m);
+                    System.out.println("1 More man is voting! Total "
+                            + "men voting: " + m);
                     System.out.println("Voters: " + voters);
                 }
                 else {
@@ -447,5 +449,82 @@ public class G02 {
         change = pays - totalPrice;
         System.out.printf("Change: %d $\n", change);
         System.out.println("----- THANKS! -----");
+    }
+    
+    public void workers(){
+        //Receives: Hours (between 1 and 8) - 80$ // Extras 100$
+        //Returns: Total payment
+        System.out.println("G02 - E13");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        int days, regularPay, extraPay, totalPayment, hours, extraHours, payday,
+                totalHours, totalExtraHours;
+        days = 15; regularPay = 80; extraPay = 100; payday = 0; totalHours = 0;
+        totalExtraHours = 0;
+        
+        System.out.print("Enter labour days (15/30): ");
+        days = input.nextInt();
+        
+        for (int i = 0; i < days; i++){
+            System.out.print("\nEnter hours worked: ");
+            hours = input.nextInt();
+            
+            if (hours <= 8){
+                totalPayment = regularPay * hours;
+                System.out.printf("Hours worked were a regular work day of "
+                        + "%d$/hr \n Total Payment: %d$",
+                        regularPay, totalPayment);
+                payday += totalPayment;
+                totalHours += hours;
+            } else {
+                System.out.printf("Hours worked were over a regular work day of"
+                        + " %d$/hr \nplus %d$/hr for extra hours.",
+                        regularPay, extraPay);
+                extraHours = hours - 8;
+                totalPayment = ((regularPay * 8) + (extraPay * extraHours));
+                System.out.printf("Hours worked: %d HRS\n"
+                        + "Total Payment: %d$ \n",
+                        hours, totalPayment);
+                payday += totalPayment;
+                totalHours += hours;
+                totalExtraHours += extraHours;
+            }
+        }
+        
+        System.out.println("\n------ PAYDAY ------");
+        System.out.printf("Hours Worked: %dhrs\nExtra Hours: %dhrs\n"
+                + "Total Payment: %d$\n", totalHours, totalExtraHours,
+                payday);
+    }
+    
+    public void currency(){
+        //Receives: Dolar/Peso Amount
+        //Returns: Dolar/Peso Converted
+        System.out.println("G02 - E14");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        float peso, dolar;
+        int select;
+        
+        System.out.println("Select currency: ");
+        
+        System.out.println("1. Dolar <-> Peso");
+        System.out.println("2. Peso  <-> Dolar");
+        
+        select = input.nextInt();
+        
+        switch (select) {
+            case 1:
+                System.out.println("Enter Dolars: ");
+                dolar = input.nextFloat();
+                peso = dolar * 15;
+                System.out.println("Total Peso: " + peso);
+                break;
+                
+            case 2: 
+                System.out.println("Enter Peso: ");
+                peso = input.nextFloat();
+                dolar = peso / 15;
+                System.out.println("Total Dolar: " + dolar);
+                break;
+        }
     }
 }
