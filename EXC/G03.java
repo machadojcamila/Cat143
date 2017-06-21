@@ -222,4 +222,69 @@ public class G03 {
         Collections.reverse(Vals);
         System.out.println("Values>>>Lst/Hst: " + Vals);
     }
+    
+    public void whileTen(){
+        //Receives: N/A
+        //Returns: Values from 1 to 10
+        System.out.println("G03 - E08");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        int i;
+        i = 0;
+        
+        while (i < 10){
+            ++i;
+            System.out.println(i);
+        }
+    }
+    
+    public void strangeMath(){
+        //Receives: 2 Values
+        //Returns: Add, Substract, Multiply and Divide those values
+        System.out.println("G03 - E08");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        float val, add, sub, mul, div, val1;
+        
+        System.out.println("Insert an Integer Value");
+        System.out.print("Value 1: ");
+        val = input.nextInt();
+        
+        System.out.println("Insert a Float Value");
+        System.out.print("Value 2: ");
+        val1  = input.nextFloat();
+        
+        add = (int) (val + val1);
+        sub = (int) ((val1 > val)? val1 - val : val - val1);
+        mul = (int) (val * val1);
+        div = (int) ((val1 > val)? val1 - val : val - val1);
+        System.out.println("Addition: " + add);
+        System.out.println("Substraction: " + sub);
+        System.out.println("Multiplication: " + mul);
+        System.out.println("Division: " + div);
+    }
+    
+    public void bigBrotherTwo(){
+        //Receives: 3 Values
+        //Returns: Select the highest value and cant repeat the same value
+        System.out.println("G03 - E09");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        int val, val1, val2;
+        
+        System.out.println("Insert Value: ");
+        val = input.nextInt();
+        
+        System.out.println("Insert Value: ");
+        val1 = input.nextInt();
+        
+        System.out.println("Insert Value: ");
+        val2 = input.nextInt();
+        
+        int greatest = (val > val1)? val : val1;
+        int sGreatest = (val1 > val2)? val1 : val2;
+        int totalGreat = (sGreatest > greatest)? sGreatest : greatest;
+        System.out.println("Biggest Brother Is: " + totalGreat);
+        int lowest = (val < val1)? val : val1;
+        int sLowest = (val1 < val2)? val1 : val2;
+        int totalLowst = (sLowest < lowest)? sLowest : lowest;
+        System.out.println("Lowest Value: " + totalLowst);
+    }
 }
