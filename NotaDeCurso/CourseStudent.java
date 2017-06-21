@@ -65,6 +65,7 @@ public class CourseStudent {
     }
     
     public float determinateAverage(){
+        System.out.println("___________ AVERAGE STUDENT ___________");
         List<Float> Exams = new ArrayList<Float>();
         float n, total;
         total = 0;
@@ -95,5 +96,50 @@ public class CourseStudent {
                 + "First Name: %s\nLast Name: %s\nAge: %d\n"
                 + "Class: %s\nAverage: %.2f\n",
                 name, last, age, course, average);
+    }
+    
+    public void createStudent(){
+        System.out.println("___________ CREATE STUDENT ___________");
+        String name, last, course;
+        int age;
+        float average;
+        average = getStudentAverage();
+        
+        System.out.print("First Name: ");
+        name = input.next();
+        
+        System.out.print("Last Name: ");
+        last = input.next();
+        
+        System.out.print("Age: ");
+        age = input.nextInt();
+        
+        System.out.print("Course: ");
+        course = input.next();
+        
+        average = (average != 0)? average : 0;
+        
+        setFirstName(name);
+        setLastName(last);
+        setStudentAge(age);
+        setCourseName(course);
+        setStudentAverage(average);
+    }
+    
+    public void work(){
+        System.out.println("Create a Student and Report its Details");
+        int x = 0;
+        System.out.println("Enter -1 to END // Enter (ANY INT) to CONTINUE:");
+        x = input.nextInt();
+        while (x != -1){
+            CourseStudent alpha = new CourseStudent("", "", 0, "", 0);
+            alpha.createStudent();
+            alpha.determinateAverage();
+            alpha.studentReport();
+            System.out.println("----" + getFirstName() + " " + getLastName() + "----------");
+            System.out.println("Enter -1 to END // Enter (ANY INT) to CONTINUE:");
+            x = input.nextInt();
+        }
+        System.out.println("STUDENTS HAS BEEN STORED INTO DB");
     }
 }
