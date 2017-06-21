@@ -39,16 +39,20 @@ public class G03Profile {
     
     public String dateBDay(){
         int bt = getBirthday();
-        int year = bt %= 10000;
-        int day = bt /= 100;
-        int mnth = bt;
+        int day = bt / 1000000;
+        int mnth = (bt / 10000) % 10;
+        int year = bt % 10000;
         String btDate = day + "/" + mnth + "/" + year;
         System.out.println(btDate);
         return btDate;
     }
     
+    public String showCountry(){
+         return "";
+    }
+    
     public void showDetails(){
-        System.out.printf("First Name: %s\nLast Name: %s\nBirthday: %d\n",
-                getFirstName(), getLastName(), getBirthday());
+        System.out.printf("First Name: %s\nLast Name: %s\nBirthday: %s\n",
+                getFirstName(), getLastName(), dateBDay());
     }
 }
