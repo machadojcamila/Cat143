@@ -1,5 +1,8 @@
 package cat143;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class G03 {
@@ -164,5 +167,59 @@ public class G03 {
         } else {
             System.out.println("This member gives a false age");
         }
-    }  
+    }
+    
+    public void giveAHigher(int superable){
+        //Parameter: superable (int)
+        //Receives: 5 Values
+        //Returns: The values from highest to lowest and the values that
+        // are higher than "superable"
+        System.out.println("G03 - E07");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        int val, val1, val2, val3, val4;
+        int highestValue, lowestValue;
+        List<Integer> Vals = new ArrayList<Integer>();
+        List<Integer> Great = new ArrayList<Integer>();
+        
+        System.out.println("Enter values: ");
+        System.out.println("-------------------------------------------------");
+        System.out.print("Value 1: ");
+        val = input.nextInt();
+        Vals.add(val);
+        System.out.print("Value 2: ");
+        val1 = input.nextInt();
+        Vals.add(val1);
+        System.out.print("Value 3: ");
+        val2 = input.nextInt();
+        Vals.add(val2);
+        System.out.print("Value 4: ");
+        val3 = input.nextInt();
+        Vals.add(val3);
+        System.out.print("Value 5: ");
+        val4 = input.nextInt();
+        Vals.add(val4);
+        
+        for (int i = 1; i < Vals.size(); i++){
+            int actualVal = Vals.get(i);
+            if (actualVal > superable){
+                Great.add(i);
+            } else {
+                System.out.printf("%d wast bigger than %d value!\n",
+                        actualVal, superable);
+            }
+        }
+        
+        Collections.sort(Vals);
+        Collections.reverse(Vals);
+        highestValue = Vals.get(0);
+        lowestValue = Vals.get(4);
+        
+        System.out.println("--------- R E S U L T S ---------");
+        System.out.printf("Superable Value: %d", superable);
+        System.out.printf("\nHighest Value: %d", highestValue);
+        System.out.printf("\nLowest Value:  %d", lowestValue);
+        System.out.println("\nValues>>>Hst/Lst: " + Vals);
+        Collections.reverse(Vals);
+        System.out.println("Values>>>Lst/Hst: " + Vals);
+    }
 }
