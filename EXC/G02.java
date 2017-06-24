@@ -114,8 +114,9 @@ public class G02 {
         System.out.println("G02 - E05");
         System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
         
-        float val, val1, val2;
+        float val, val1, val2, highestVal;
         
+        System.out.println("Enter Values:");
         System.out.print("Value 1: ");
         val = input.nextFloat();
         
@@ -125,13 +126,13 @@ public class G02 {
         System.out.print("Value 3: ");
         val2 = input.nextFloat();
         
-        if ((val > val1) && (val > val2)){
-            System.out.println("Value 1 is the Big Brother: " + val);
-        } else if ((val1 > val) && (val1 > val2)) {
-            System.out.println("Value 2 is the Big Brother: " + val1);
-        } else if ((val2 > val) && (val2 > val1)) {
-            System.out.println("Value 3 is the Big Brother: " + val2);
-        }
+        highestVal = val;
+        
+        highestVal = (highestVal > val1)? highestVal : val1;
+        
+        highestVal = (highestVal > val2)? highestVal : val2;
+        
+        System.out.printf("Highest Value is: %.2f\n", highestVal);
     }
     
     public void checkGrades(){
