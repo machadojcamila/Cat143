@@ -1,16 +1,15 @@
 package cat143;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class G03 {
+public class G02 {
     
     private String userName;
     private int mod;
     
-    public G03(String name, int modNum) {
+    public G02(String name, int modNum) {
         userName = name; // !important
         mod = modNum; //!importat
     }
@@ -33,258 +32,442 @@ public class G03 {
     
     Scanner input = new Scanner(System.in);
     
-    public void countingA(){
-        //Receives: N/A
-        //Returns: Numbers from 1 to 10
-        System.out.println("G03 - E01");
+    public void rectangleArea(){
+        //Receives: Base and Height
+        //Returns: Area
+        System.out.println("G02 - E01");
         System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
-        int counter;
-        counter = 0;
+        int base, height, area;
         
-        for (int i = 1; i <= 10; i++){
-            System.out.println(i);
-            counter += i;
-        }     
-        System.out.println("Total: " + counter);
+        System.out.print("Base: ");
+        base = input.nextInt();
+        
+        System.out.print("Height: ");
+        height = input.nextInt();
+        
+        
+        area = base * height;
+        
+        System.out.printf("A Rectangle: \n Base: %d\n Height: %d\n "
+                + "Perimeter: %d\n", base, height, area);
     }
     
-    public void countingB(){
-        //Receives: N/A
-        //Returns: Numbers from 5 to 100 (5 by 5)
-        System.out.println("G03 - E02");
+    public void squareArea(){
+        //Receives: Side
+        //Returns: perimeter
+        System.out.println("G02 - E02");
         System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
-        int counter = 0;
+        int side, perimeter;
         
-        for (int i = 5; i <= 100; i += 5){
-            System.out.println(i);
-            counter += i;
-        }
-        System.out.println("Total: " + counter);
+        System.out.print("Side: ");
+        side = input.nextInt();
+        
+        perimeter = side * side;
+        System.out.printf("A Square: \n Side: %d\n Perimeter: %d\n",
+                side, perimeter);
     }
     
-    public void countingC(){
-        //Receives: N/A
-        //Returns: Numbers from 2 to 100 (only pairs)
-        System.out.println("G03 - E03");
+    public void averagePrice(){
+        //Receives: Price 1, Price 2, Price 3
+        //Returns: Average Price
+        System.out.println("G02 - E03");
         System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
-        int counter = 0;
+        float price1, price2, price3, average;
         
-        for (int i = 1; i <= 100; i++){
-            if (i % 2 == 0){
-                System.out.println(i);
-                counter += i;
-            }
-        }
-        System.out.println("Total: " + counter);
+        System.out.print("Price 1: ");
+        price1 = input.nextFloat();
+        
+        System.out.print("Price 2: ");
+        price2 = input.nextFloat();
+        
+        System.out.print("Price 3: ");
+        price3 = input.nextFloat();
+        
+        average = ((price1 + price2 + price3) / 3);
+        System.out.println("Average Price is: " + average);
     }
     
-    public void countingD(){
-        //Receives: N/A
-        //Returns: Numbers from 1 to 300, prints either, shows totals
-        System.out.println("G03 - E03");
+    public void divideNumbers(){
+        //Receives: Number 1, Number 2
+        //Returns: The highest number divided into the lowest
+        System.out.println("G02 - E04");
         System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
-        int counter, totalImpar;
-        counter = 0;
-        totalImpar = 0;
-        for (int i = 1; i <= 300; i++){
-            if (i % 2 != 0){
-                System.out.println(i);
-                counter += i;
-                totalImpar++;
-            } else {
-                System.out.println(i);
-            }
-        }
-        System.out.println("Total Impar: " + totalImpar);
-        System.out.println("Total: " + counter);
-    }
-    
-    public void parOImpar(){
-        //Receives: Number
-        //Returns:  Par / Impar
-        System.out.println("G03 - E04");
-        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
-        int number;
         
-        System.out.println("Enter Number: ");
-        number = input.nextInt();
+        float val, val1, div;
         
-        if (number % 2 == 0){
-            System.out.println("Number es par");
+        System.out.print("Value 1: ");
+        val = input.nextFloat();
+        
+        System.out.print("Value 2: ");
+        val1 = input.nextFloat();
+        
+        if (val > val1){
+            div = val / val1;
         } else {
-            System.out.println("Number es impar");
+            div = val1 / val;
+        }
+        
+        System.out.printf("Total is: %.2f\n", div);
+    }
+    
+    public void bigBrother(){
+        //Receives: Number 1, Number 2, Number 3
+        //Returns: The highest number
+        System.out.println("G02 - E05");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        
+        float val, val1, val2, highestVal;
+        
+        System.out.println("Enter Values:");
+        System.out.print("Value 1: ");
+        val = input.nextFloat();
+        
+        System.out.print("Value 2: ");
+        val1 = input.nextFloat();
+        
+        System.out.print("Value 3: ");
+        val2 = input.nextFloat();
+        
+        highestVal = val;
+        
+        highestVal = (highestVal > val1)? highestVal : val1;
+        
+        highestVal = (highestVal > val2)? highestVal : val2;
+        
+        System.out.printf("Highest Value is: %.2f\n", highestVal);
+    }
+    
+    public void checkGrades(){
+        //Receives: Grade
+        //Returns: If Grade >= 6 pases, if Grade < 6 Feb, if Grade <= 3 Dic
+        System.out.println("G02 - E05");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        
+        float grade;
+        
+        System.out.print("Enter student grade: ");
+        grade = input.nextFloat();
+        
+        if (grade >= 6){
+            System.out.printf("%s grade was %.2f, %s passes!\n",
+                    getUserName(), grade, getUserName());
+        } else if ((grade < 6) && (grade > 3)){
+            System.out.printf("%s grade was %.2f, %s will have to repeat the"
+                    + " test on February 10th!\n",
+                    getUserName(), grade, getUserName());
+        } else if (grade <= 3){
+            System.out.printf("%s grade was %.2f, %s will have to repeat!"
+                    + " The test will be on December 3rd!\n",
+                    getUserName(), grade, getUserName());
         }
     }
     
-    public void numberCheck(){
-        //Receives: N/A
-        //Returns: Numbers from 1 to 10
-        System.out.println("G03 - E05");
+    public void check20Grades(){
+        //Receives: 20 Alumni grades, names
+        //Returns: Status
+        System.out.println("G02 - E06");
         System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
-        int [] numbers = {12,88,14,15,33,21,60,102,80, 43,67,52,56,24,31,22,10,
-            28,90,91,34,95,30,22,32,87,54,11,2,55,109,112,38,99,42,77,10,15,21};
         
-        int FftyAndSvnty = 0; int greatherEigty = 0; int smallerThiry = 0;
-        for (int i = 0; i < numbers.length; i++){
-            System.out.println(numbers[i]);
+        String name;
+        int i;
+        float grade;
+        
+        for (i = 1; i <= 20; i++){
+            System.out.printf("\nStudent Number: %d\n", i);
             
-            if (numbers[i] >= 50 && numbers[i] <= 75){
-                FftyAndSvnty++;
-            }
+            System.out.print("Student Name: ");
+            name = input.next();
             
-            if (numbers[i] > 80){
-                greatherEigty++;
-            }
+            System.out.print("Grade: ");
+            grade = input.nextFloat();
             
-            if (numbers[i] > 30){
-                smallerThiry++;
+            if (grade >= 6){
+                System.out.printf("%s grade was %.2f, %s passes!\n",
+                        name, grade, name);
+            } else if ((grade < 6) && (grade > 3)){
+                System.out.printf("%s grade was %.2f, %s will have to "
+                        + "repeat the test on February 10th!\n",
+                        name, grade, name);
+            } else if (grade <= 3){
+                System.out.printf("%s grade was %.2f, %s will have to repeat!"
+                        + " The test will be on December 3rd!\n",
+                        name, grade, name);
             }
-        }
-        
-        System.out.println("Numbers between 50 and 75: " + FftyAndSvnty);
-        System.out.println("Numbers greater than 80: " + greatherEigty);
-        System.out.println("Numbers smallers than 30: " + smallerThiry);
-    }
-    
-    public void checkAge(){
-        //Receives: Age
-        //Returns: Category
-        System.out.println("G03 - E06");
-        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
-        int age;
-        
-        System.out.println("Enter age member age: ");
-        age = input.nextInt();
-        
-        if (age <= 12){
-            System.out.println("This memeber is a youngster");
-        } else if (age > 12 && age <= 18){
-            System.out.println("This member is a teen");            
-        } else if (age > 18 && age < 26){
-            System.out.println("This member is an adult");
-        } else if (age >= 26){
-            System.out.println("This member is an elder");
-        } else {
-            System.out.println("This member gives a false age");
         }
     }
     
-    public void giveAHigher(int superable){
-        //Parameter: superable (int)
-        //Receives: 5 Values
-        //Returns: The values from highest to lowest and the values that
-        // are higher than "superable"
-        System.out.println("G03 - E07");
+    public void holaCincoVeces(){
+        //Receives: Nothing
+        //Returns: "Hola" 5 times
+        System.out.println("G02 - E07");
         System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
-        int val, val1, val2, val3, val4;
-        int highestValue, lowestValue;
-        List<Integer> Vals = new ArrayList<Integer>();
-        List<Integer> Great = new ArrayList<Integer>();
         
-        System.out.println("Enter values: ");
-        System.out.println("-------------------------------------------------");
+        for (int i = 0; i < 5; i++){
+            System.out.println("Hola");
+        }
+    }
+    
+    public void  fiveResult(){
+        //Receives: 5 values
+        //Returns: Addition of the 5 Values
+        System.out.println("G02 - E08");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        
+        int val, val1, val2, val3, val4, add;
+        
         System.out.print("Value 1: ");
         val = input.nextInt();
-        Vals.add(val);
+        
         System.out.print("Value 2: ");
         val1 = input.nextInt();
-        Vals.add(val1);
+        
         System.out.print("Value 3: ");
         val2 = input.nextInt();
-        Vals.add(val2);
+        
         System.out.print("Value 4: ");
         val3 = input.nextInt();
-        Vals.add(val3);
+        
         System.out.print("Value 5: ");
         val4 = input.nextInt();
-        Vals.add(val4);
         
-        for (int i = 1; i < Vals.size(); i++){
-            int actualVal = Vals.get(i);
-            if (actualVal > superable){
-                Great.add(i);
-            } else {
-                System.out.printf("%d wast bigger than %d value!\n",
-                        actualVal, superable);
-            }
-        }
-        
-        Collections.sort(Vals);
-        Collections.reverse(Vals);
-        highestValue = Vals.get(0);
-        lowestValue = Vals.get(4);
-        
-        System.out.println("--------- R E S U L T S ---------");
-        System.out.printf("Superable Value: %d", superable);
-        System.out.printf("\nHighest Value: %d", highestValue);
-        System.out.printf("\nLowest Value:  %d", lowestValue);
-        System.out.println("\nValues>>>Hst/Lst: " + Vals);
-        Collections.reverse(Vals);
-        System.out.println("Values>>>Lst/Hst: " + Vals);
+        add = val + val1 + val2 + val3 + val4;
+        System.out.printf("%d + %d + %d + %d + %d = %d",
+                val, val1, val2, val3, val4, add);
     }
     
-    public void whileTen(){
-        //Receives: N/A
-        //Returns: Values from 1 to 10
-        System.out.println("G03 - E08");
+    public void subsTwo(){
+        //Receives: 2 values
+        //Returns: Substraction of the 2 Values
+        System.out.println("G02 - E09");
         System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
-        int i;
-        i = 0;
         
-        while (i < 10){
-            ++i;
-            System.out.println(i);
-        }
-    }
-    
-    public void strangeMath(){
-        //Receives: 2 Values
-        //Returns: Add, Substract, Multiply and Divide those values
-        System.out.println("G03 - E08");
-        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
-        float val, add, sub, mul, div, val1;
+        int val, val1, sub;
         
-        System.out.println("Insert an Integer Value");
         System.out.print("Value 1: ");
         val = input.nextInt();
         
-        System.out.println("Insert a Float Value");
         System.out.print("Value 2: ");
-        val1  = input.nextFloat();
-        
-        add = (int) (val + val1);
-        sub = (int) ((val1 > val)? val1 - val : val - val1);
-        mul = (int) (val * val1);
-        div = (int) ((val1 > val)? val1 - val : val - val1);
-        System.out.println("Addition: " + add);
-        System.out.println("Substraction: " + sub);
-        System.out.println("Multiplication: " + mul);
-        System.out.println("Division: " + div);
-    }
-    
-    public void bigBrotherTwo(){
-        //Receives: 3 Values
-        //Returns: Select the highest value and cant repeat the same value
-        System.out.println("G03 - E09");
-        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
-        int val, val1, val2;
-        
-        System.out.println("Insert Value: ");
-        val = input.nextInt();
-        
-        System.out.println("Insert Value: ");
         val1 = input.nextInt();
         
-        System.out.println("Insert Value: ");
-        val2 = input.nextInt();
+        sub = val - val1;
+        System.out.printf("%d - %d = %d",
+                val, val1, sub);
+    }
+    
+    public void voteOrNot(){
+        //Receives: Name, Last Name, Sex, Age
+        //Returns: if user age > 18 can vote
+        System.out.println("G02 - E10");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
         
-        int greatest = (val > val1)? val : val1;
-        int sGreatest = (val1 > val2)? val1 : val2;
-        int totalGreat = (sGreatest > greatest)? sGreatest : greatest;
-        System.out.println("Biggest Brother Is: " + totalGreat);
-        int lowest = (val < val1)? val : val1;
-        int sLowest = (val1 < val2)? val1 : val2;
-        int totalLowst = (sLowest < lowest)? sLowest : lowest;
-        System.out.println("Lowest Value: " + totalLowst);
+        String firstName, lastName;
+        int age, m, f, sex, voters;
+        
+        m = 0; f = 0; voters = 0;
+        
+        while (voters < 10) {
+            System.out.print("First Name: ");
+            firstName = input.next();
+            
+            System.out.print("Last Name: ");
+            lastName = input.next();
+            
+            System.out.print("Age: ");
+            age = input.nextInt();
+            
+            if (age >= 18){
+                System.out.printf("%s is able to vote!\n", firstName);
+                System.out.print("Sex (1 = F, 0 = M): ");
+                sex = input.nextInt();
+                if (sex == 1){
+                    f++;
+                    voters++;
+                    System.out.println("1 More Woman is voting! Total "
+                            + "woman voting: " + f);
+                    System.out.println("Voters: " + voters);
+                }
+                
+                else if (sex == 0){
+                    m++;
+                    voters++;
+                    System.out.println("1 More man is voting! Total "
+                            + "men voting: " + m);
+                    System.out.println("Voters: " + voters);
+                }
+                else {
+                    System.out.println("Invalid Sex, Try Again");
+                    break;
+                }
+            } else {
+                System.out.printf("%s is not able to vote!",
+                        firstName);
+                break;
+            }
+        }
+        System.out.println("Total M voters: " + m);
+        System.out.println("Total F voters: " + f);
+    }
+    
+    public void alumniAverage(){
+        //Receives: Grade
+        //Returns: 20 Grade Average
+        System.out.println("G02 - E11");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        
+        float grade, average, total;
+        total = 0;
+        
+        for (int i = 0; i < 20; i++){
+            System.out.print("Grade: ");
+            grade = input.nextFloat();
+            
+            total += grade;
+        }
+        
+        average = (total / 20);//Fix this formula
+        System.out.println("Classroom Average is: " + total);
+    }
+    
+    public void store(){
+        //Receives: 15 products
+        //Returns: Total, Payment, Change
+        System.out.println("G02 - E12");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        
+        int prods, selection, totalDue;
+        List<String> cart = new ArrayList<String>();
+        
+        selection = 0;
+        totalDue = 0;
+        
+        String [] products = {"PlayStation 4", "Xbox One", "iPhone 6s",
+            "Apple MacBook", "HP Notebook", "Samsung Galaxy", "Desktop PC", 
+            "Gamming PC", "PlayStation 3", "Xbox 360", "Samsung Smart TV", 
+            "HP Server", "Apple Mac Pro", "Surface Microsoft", 
+            "HP Desktop Monitor"};
+        
+        int [] prices = {350, 380, 540, 1100, 700, 925, 1200, 1800,
+                210, 240, 480, 850, 2100, 950, 350};
+        
+        System.out.println("Products List\n");
+            
+        while(selection != -1) {
+        
+            System.out.println("=============================================");
+            
+            for (int e = 0; e < products.length; e++){
+                
+                System.out.printf("%d.%25s%15d$\n", e + 1, products[e], prices[e]);
+        
+            }
+        System.out.println("=============================================");
+        System.out.println("What are you taking?");
+        System.out.println("Insert 0 to check out");
+        System.out.println("=============================================");
+        selection = input.nextInt();
+        selection--;
+        
+                
+        if (selection != -1){
+            
+            cart.add(products[selection]);
+            totalDue += prices[selection];
+            
+        } else {
+            
+            System.out.println("=============================================");
+            System.out.println("Total Payment: ");
+            System.out.print("Products taken: \n");
+            
+            for (int o = 0; o < cart.size(); o++){
+                
+                System.out.printf("%d.%s\n", o + 1, cart.get(o));
+                
+            }
+            System.out.println("=============================================");
+            System.out.println("Total Due: " + totalDue + "$");
+        }
+    }
+        
+         
+        
+            
+    }
+    
+    public void workers(){
+        //Receives: Hours (between 1 and 8) - 80$ // Extras 100$
+        //Returns: Total payment
+        System.out.println("G02 - E13");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        int days, regularPay, extraPay, totalPayment, hours, extraHours, payday,
+                totalHours, totalExtraHours;
+        days = 15; regularPay = 80; extraPay = 100; payday = 0; totalHours = 0;
+        totalExtraHours = 0;
+        
+        System.out.print("Enter labour days (15/30): ");
+        days = input.nextInt();
+        
+        for (int i = 0; i < days; i++){
+            System.out.print("\nEnter hours worked: ");
+            hours = input.nextInt();
+            
+            if (hours <= 8){
+                totalPayment = regularPay * hours;
+                System.out.printf("Hours worked were a regular work day of "
+                        + "%d$/hr \n Total Payment: %d$",
+                        regularPay, totalPayment);
+                payday += totalPayment;
+                totalHours += hours;
+            } else {
+                System.out.printf("Hours worked were over a regular work day of"
+                        + " %d$/hr \nplus %d$/hr for extra hours.",
+                        regularPay, extraPay);
+                extraHours = hours - 8;
+                totalPayment = ((regularPay * 8) + (extraPay * extraHours));
+                System.out.printf("Hours worked: %d HRS\n"
+                        + "Total Payment: %d$ \n",
+                        hours, totalPayment);
+                payday += totalPayment;
+                totalHours += hours;
+                totalExtraHours += extraHours;
+            }
+        }
+        
+        System.out.println("\n------ PAYDAY ------");
+        System.out.printf("Hours Worked: %dhrs\nExtra Hours: %dhrs\n"
+                + "Total Payment: %d$\n", totalHours, totalExtraHours,
+                payday);
+    }
+    
+    public void currency(){
+        //Receives: Dolar/Peso Amount
+        //Returns: Dolar/Peso Converted
+        System.out.println("G02 - E14");
+        System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
+        float peso, dolar;
+        int select;
+        
+        System.out.println("Select currency: ");
+        
+        System.out.println("1. Dolar <-> Peso");
+        System.out.println("2. Peso  <-> Dolar");
+        
+        select = input.nextInt();
+        
+        switch (select) {
+            case 1:
+                System.out.println("Enter Dolars: ");
+                dolar = input.nextFloat();
+                peso = dolar * 15;
+                System.out.println("Total Peso: " + peso);
+                break;
+                
+            case 2: 
+                System.out.println("Enter Peso: ");
+                peso = input.nextFloat();
+                dolar = peso / 15;
+                System.out.println("Total Dolar: " + dolar);
+                break;
+        }
     }
 }
