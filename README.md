@@ -1,1 +1,1 @@
-![alt text](https://s3.amazonaws.com/images.seroundtable.com/google-code-1467225082.jpg)
+![alt text](https://raw.githubusercontent.com/EstebanBorai/Cat143/master/src/cat143stripe.png)
