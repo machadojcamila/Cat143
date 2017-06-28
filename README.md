@@ -7,9 +7,7 @@ Cat143 Code Repository!
 
 Everything you need to know is basic Java concepts to be able to commit in this repository!
 
-### By working through our curriculum, you can earn four certifications:
 ##### - Fix or Improve algorithms
-------------
 Some of these "projects" could have some issues, or maybe just need a fix to improve the algorithm
 
 ##### - Share knowledge
