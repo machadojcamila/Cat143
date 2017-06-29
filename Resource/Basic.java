@@ -1,5 +1,3 @@
-package helloworld;
-
 import java.util.Scanner;
 
 public class Basic {
@@ -144,4 +142,191 @@ public class Basic {
         System.out.println(perimeter);
     }
     
+    public void ex14(){
+        System.out.println("* * * * * * ==================================");
+        System.out.println(" * * * * *  ==================================");
+        System.out.println("* * * * * * ==================================");
+        System.out.println(" * * * * *  ==================================");
+        System.out.println("* * * * * * ==================================");
+        System.out.println(" * * * * *  ==================================");
+        System.out.println("* * * * * * ==================================");
+        System.out.println(" * * * * *  ==================================");
+        System.out.println("* * * * * * ==================================");
+        System.out.println("==============================================");
+        System.out.println("==============================================");
+        System.out.println("==============================================");
+        System.out.println("==============================================");
+        System.out.println("==============================================");
+        System.out.println("==============================================");
+    }
+    
+    public void ex15(){
+        int val, val1, temp;
+        
+        System.out.println("Input value one: ");
+        val = input.nextInt();
+        System.out.println("Input value two: ");
+        val1 = input.nextInt();
+        System.out.println("Value 1: " + val);
+        System.out.println("Value 2: " + val1);
+        System.out.println("=================");
+        temp = val;
+        val = val1;
+        val1 = temp;
+        System.out.println("S.Value 1: " + val);
+        System.out.println("S.Value 2: " + val1);
+    }
+    
+    public void ex16(){
+        System.out.println(" +\"\"\"\"\"+ ");
+        System.out.println("[| o o |]");
+        System.out.println(" |  ^  | ");
+        System.out.println(" | '-' | ");
+        System.out.println(" +-----+ ");
+    }
+    
+    public void ex17(){//FIXTHIS
+        long bin, bin1;
+        int a = 0, rem = 0, total = 0;
+        int [] sum = new int [20];
+        
+        System.out.println("Input the first binary number: ");
+        bin = input.nextLong();
+        System.out.println("Input the second binary number: ");
+        bin1 = input.nextLong();
+        
+        while (bin != 0 || bin1 != 0){
+            sum[a++] = (int)((bin % 10 + bin1 % 10 + rem) % 2);
+            rem = (int) ((bin % 10 + bin1 % 10 + rem) / 2);
+            bin /= 10;
+            bin1 /= 10;
+        }
+        
+        if (rem != 0){
+            sum[a++] = rem;        
+        }
+        
+        a--;
+        
+        while (a >= 0){
+            total = sum[a--];
+        }
+        
+        System.out.printf("%d + %d = %d",
+                bin, bin1, total);
+    }
+    
+    public void ex18(){
+        long bin, bin1, mul = 0;
+        int digit, factor = 1;
+        
+        System.out.println("Input the first binary number: ");
+        bin = input.nextLong();
+        System.out.println("Input the second binary number: ");
+        bin1 = input.nextLong();
+        
+        while (bin1 != 0){
+            digit = (int)(bin1 % 10);
+            if (digit == 1){
+                bin *= factor;
+                mul = binProduct((int) bin, (int) mul);
+            } else {
+                bin = bin * factor;
+            }
+            
+            bin1 = bin1 / 10;
+            factor = 10;
+        }
+        
+        System.out.printf("%d * %d = %d\n",
+                bin, bin1, mul);
+    }
+
+    private static int binProduct(int bin, int bin1) {
+        
+        int a = 0;
+        int rem = 0;
+        int [] sum = new int[20];
+        int binProd = 0;
+        
+        while (bin != 0 || bin1 != 0){
+            sum[a++] = (bin % 10 + bin1 % 10 + rem) % 2;
+            rem = (bin % 10 + bin1 % 10 + rem) / 2;
+            bin /= 10;
+            bin1 /= 10;
+        }
+        
+        if (rem != 0){
+            sum[a++] = rem;
+        }
+        
+        --a;
+        
+        while(a >= 0){
+            binProd = binProd * 10 + sum[a--];
+        }
+        
+        return binProd;
+    }  
+    
+    public void ex19(){
+        float dNum;
+        int rem, var = 0, x = 1, i;
+        int bin [] = new int [100];
+        
+        System.out.println("Input float: ");
+        dNum = input.nextFloat();
+        
+        var = (int) dNum;
+        
+        while (var != 0){
+            bin[x++] = var % 2;
+            var /= 2;
+        }
+        
+        System.out.print("Binary form: ");
+        for (i = x - 1; i > 0; i--){
+            System.out.print(bin[i]);
+        }
+        System.out.println("\n");
+    }
+    
+    public void ex31(){
+        System.out.println("Java Version: " + System.getProperty("java.version"));
+        System.out.println("Java Runtime Env Version: " + System.getProperty("java.runtime.version"));
+        System.out.println("Java Home: " + System.getProperty("java.home"));
+        System.out.println("Java Vendor: " + System.getProperty("java.vendor.url"));
+        System.out.println("Java Class Path: " + System.getProperty("java.class.path"));
+        System.out.println("");
+    }
+    
+    public void ex32(){
+        int num, num1;
+        System.out.println("Input First Value: ");
+        num = input.nextInt();
+        System.out.println("Input Second Value: ");
+        num1 = input.nextInt();
+        
+        checkNumbers(num, num1);
+        
+    }
+
+    private void checkNumbers(int num, int num1) {
+        if (num == num1){
+            System.out.printf("%d == %d\n", num, num1);
+        }
+        
+        if (num != num1){
+            System.out.printf("%d != %d\n", num, num1);
+        }
+        
+        if (num > num1){
+            System.out.printf("%d > %d\n", num, num1);
+        }
+        
+        if (num < num1){
+            System.out.printf("%d < %d\n", num, num1);
+        }
+    }
+     
 }
