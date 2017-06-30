@@ -328,5 +328,42 @@ public class Basic {
             System.out.printf("%d < %d\n", num, num1);
         }
     }
-     
+    
+    public void ex33(){
+        int val;
+        System.out.print("Input value: ");
+        val = input.nextInt();
+        System.out.println("Digit sum is: " + dSum(val));
+    }
+
+    private int dSum(int num) {
+        int sum = 0;
+        
+        while (num != 0){
+            sum += num % 10;
+            num /= 10;
+        }
+        
+        return sum;
+    }
+    
+    public void ex34(){
+        double side, area;
+        System.out.print("Input Hexagon side length: ");
+        side = input.nextDouble();
+        
+        area = (6 * Math.pow(side,2)/(4 * Math.tan(Math.PI/6)));
+        System.out.println("Hexagon area is: " + area);
+    }
+    
+    public void ex35(){
+        double sides, length, area;
+        System.out.print("Input Poligon number of sides: ");
+        sides = input.nextDouble();
+        System.out.print("Input Poligon side length: ");
+        length = input.nextDouble();
+        
+        area = ((sides * (Math.pow(length, 2))) / 4 * Math.tan(Math.PI/sides));
+        System.out.println("The area is: " + area);
+    }
 }
