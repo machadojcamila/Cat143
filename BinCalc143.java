@@ -1,104 +1,70 @@
-package bincalccat143;
+package helloworld;
 
-import javax.swing.JOptionPane;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
-public class BinCalCat143 {
+public class BinCalc143v1 {
     
-    JOptionPane input = new JOptionPane();
-    Scanner in = new Scanner(System.in);
+    JOptionPane win = new JOptionPane();
+    Scanner input = new Scanner(System.in);
     
-    private String name;
-    private int com;
-    
-    public BinCalCat143(String uName, int uCom){
-        name = uName;
-        com = uCom;
-    }
-    
-    public void setName(String uName){
-        name = uName;
-    }
-    
-    public String getName(){
-        return name;
-    }
-    
-    public void setCom(int uCom){
-        com = uCom;
-    }
-    
-    public int getCom(){
-        return com;
-    }
-    
-    public void display(){
-        System.out.println("Binary Calculator Cat143");
-        System.out.printf("%s - %d\n", getName(), getCom());
-    }
+    public String toBin(String get){
+        int num = Integer.parseInt(get);
+        int bin [] = new int [40];
+        int i = 0;
+        String binNum = "";
         
-    public double getValues(double a){
-        double vf;
-        if (a == 0){
-            System.out.print("Enter Value: ");
-            vf = in.nextDouble();
-            return vf; 
-        } else {
-            vf = a;
-            return a;
+        while (num > 0){ //till the first number turns into 0
+            bin[i++] = num % 2;//gets remainder and add it to array
+            num /= 2; //divides to get the next number
         }
+        
+        for (int o = i - 1; o >= 0; o--){
+            binNum += bin[o];
+        }
+        return binNum;
     }
     
-    public String soBin(double a){//D -> BinStr
-        Integer num = new Integer((int) a);
-        String b = Integer.toBinaryString(num);
-        return b;
+    public void launch(){
+        String val, val1, binVal, binVal1;
+        
+        val = win.showInputDialog(null, "Enter value 1: ", "BINCALC143", 1);
+        val1 = win.showInputDialog(null, "Enter value 2: ", "BINCALC143", 1);
+        
+        binVal = toBin(val);
+        binVal1 = toBin(val1);
+        
+        showEquiv(binVal, val, binVal1, val1);
+        
+        calc(val, val1);
     }
-    
-    public String goBin(String a){//Str -> Doub
-        String num = new String(a);
-        double b = Double.parseDouble(num);
-        Integer toBin = new Integer((int) b);
-        String alpha = Integer.toBinaryString(toBin);
-        return alpha;
+
+    private void showEquiv(String binVal, String val, String binVal1, String val1) {
+        //Display window showing equivalences between
+        //Binary and Integer
+        win.showMessageDialog(null, "Values to Binary:\nValue 1: " + val + " <-> " + binVal +
+                "\nValue 2: " + val1 + " <-> " + binVal1, "BINCALC143", 1);
     }
-    
-    
-    
-    public void launch(){      
-        String a, b, aInt, bInt, op;
-        int actOp;
+
+    private void calc(String val, String val1) {
+        String b1, b2;
+        int u1 = Integer.parseInt(val);
+        int u2 = Integer.parseInt(val1);
+        b1 = toBin(val);
+        b2 = toBin(val1);
         
-        a = input.showInputDialog(null, "Number 1:", "BINCALC-CAT143", 1);
-        b = input.showInputDialog(null, "Number 2:", "BINCALC-CAT143", 1);
         
-        aInt = goBin(a);
-        bInt = goBin(b);
+        String op = win.showInputDialog(null, "Operation: \n"
+                + "1. Addition\n2. Substraction\n3. Multiplication\n4. Division", "BINCALC143", 1);
         
-        op = input.showInputDialog(null, "Numbers to Binary:\n" +
-                a + " = " + aInt + "\n" + b + " = " + bInt + 
-                "\nOperations Available: \n1. " + a + " + " + b +
-                "\n2. " + a + " - " + b + "\n3. " + a + " * " + b +
-                "\n4. " + a + " / " + b, "BINCALC-CAT143", 1);
-        
-        switch (op){
+        switch(op) {
             case "1":
-                Integer al = new Integer(a);
-                Integer bl = new Integer(b);                
-                actOp = (al + bl);
+                int sum = u1 + u2;
+                String sumS = sum + "";
                 
-                input.showMessageDialog(null, "Addition\n" + 
-                        a + " + " +  b  + " = " + actOp +
-                        "\n" + aInt + " + " + bInt + " = " + Integer.toBinaryString(actOp),
-                        "BINCALC-CAT143", 1);
-                break;
-                
-            default:
-                System.out.println("FAIL");
-                break;
+                win.showMessageDialog(null, "Addition: \nIntegers: \n" + u1 + " + " + u2
+                        + " = " + sum + "\nBinaries: \n" + b1 + " + " + b2 + " = " +
+                        toBin(sumS), "BINCALC143", 1);
         }
     }
-    
-    
-    
 }
