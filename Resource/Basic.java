@@ -291,6 +291,30 @@ public class Basic {
         System.out.println("\n");
     }
     
+    public void ex20(){
+        
+        final char [] HEX = {
+            '0', '1', '2', '3', '4', '5', '6', '7',
+            '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        final int BIT = 8;
+        final int BIT_HALF_BYTE = 4;
+        final int HALF_BYTE = 0X0F;
+        
+        System.out.print("Enter value to convert: ");
+        int num = input.nextInt();
+        
+        StringBuilder buildHex = new StringBuilder(BIT);
+        buildHex.setLength(BIT);
+        
+        for (int i = BIT - 1; i >= 0; --i){
+            int o = num & HALF_BYTE;
+            buildHex.setCharAt(i, HEX[o]);
+            num >>= BIT_HALF_BYTE;
+        }
+        
+        System.out.print(buildHex.toString() + "\n");
+    }
+    
     public void ex31(){
         System.out.println("Java Version: " + System.getProperty("java.version"));
         System.out.println("Java Runtime Env Version: " + System.getProperty("java.runtime.version"));
