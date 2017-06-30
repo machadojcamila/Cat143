@@ -1,5 +1,3 @@
-package helloworld;
-
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -65,6 +63,37 @@ public class BinCalc143v1 {
                 win.showMessageDialog(null, "Addition: \nIntegers: \n" + u1 + " + " + u2
                         + " = " + sum + "\nBinaries: \n" + b1 + " + " + b2 + " = " +
                         toBin(sumS), "BINCALC143", 1);
+                break;
+                
+            case "2":
+                int sub = u1 - u2;
+                String subS = sub + "";
+                win.showMessageDialog(null, "Substraction: \nIntegers: \n" + u1 + " - " + u2
+                        + " = " + sub + "\nBinaries: \n" + b1 + " - " + b2 + " = " +
+                        toBin(subS), "BINCAL143", 1);
+                break;
+            
+            case "3":
+                int mul = u1 * u2;
+                String mulS = mul + "";
+                win.showMessageDialog(null,"Multiplication: \nIntegers: \n" + u1 + " * " + u2
+                        + " = " + mul + "\nBinaries: \n" + b1 + " * " + b2 + " = " +
+                        toBin(mulS), "BINCAL143", 1 );
+                break;
+                
+            case "4":
+                int div = u1 / u2;
+                if (u1 > u2){
+                    div = u1 / u2;
+                } else {
+                    div = u2 / u1;
+                }
+                
+                String divS = div + "";
+                win.showMessageDialog(null, "Division: \nIntegers: \n" + u1 + " / " + u2
+                        + " = " + div + "\nBinaries: \n" + b1 + " / " + b2 + " = " +
+                        toBin(divS));
+                break;
         }
     }
 }
