@@ -1,3 +1,5 @@
+package javaing;
+
 import java.util.Scanner;
 
 public class Basic {
@@ -185,7 +187,7 @@ public class Basic {
         System.out.println(" +-----+ ");
     }
     
-    public void ex17(){//FIXTHIS
+    public void ex17(){
         long bin, bin1;
         int a = 0, rem = 0, total = 0;
         int [] sum = new int [20];
@@ -217,57 +219,25 @@ public class Basic {
     }
     
     public void ex18(){
-        long bin, bin1, mul = 0;
-        int digit, factor = 1;
+        String num, num1, result;
+        int  nat, nat1, mul;
         
-        System.out.println("Input the first binary number: ");
-        bin = input.nextLong();
-        System.out.println("Input the second binary number: ");
-        bin1 = input.nextLong();
         
-        while (bin1 != 0){
-            digit = (int)(bin1 % 10);
-            if (digit == 1){
-                bin *= factor;
-                mul = binProduct((int) bin, (int) mul);
-            } else {
-                bin = bin * factor;
-            }
-            
-            bin1 = bin1 / 10;
-            factor = 10;
-        }
+        System.out.println("Input first binary number: ");
+        num = input.next();
         
-        System.out.printf("%d * %d = %d\n",
-                bin, bin1, mul);
+        System.out.println("Input second binary number: ");
+        num1 = input.next();
+        
+        nat = Integer.parseInt(num, 2);
+        nat1 = Integer.parseInt(num1, 2);
+        
+        mul = nat * nat1;
+        result = mul + "";
+        
+        System.out.println("Product of two binary numbers: " + strToBin(result));
+        
     }
-
-    private static int binProduct(int bin, int bin1) {
-        
-        int a = 0;
-        int rem = 0;
-        int [] sum = new int[20];
-        int binProd = 0;
-        
-        while (bin != 0 || bin1 != 0){
-            sum[a++] = (bin % 10 + bin1 % 10 + rem) % 2;
-            rem = (bin % 10 + bin1 % 10 + rem) / 2;
-            bin /= 10;
-            bin1 /= 10;
-        }
-        
-        if (rem != 0){
-            sum[a++] = rem;
-        }
-        
-        --a;
-        
-        while(a >= 0){
-            binProd = binProd * 10 + sum[a--];
-        }
-        
-        return binProd;
-    }  
     
     public void ex19(){
         float dNum;
@@ -389,5 +359,24 @@ public class Basic {
         
         area = ((sides * (Math.pow(length, 2))) / 4 * Math.tan(Math.PI/sides));
         System.out.println("The area is: " + area);
+    }
+    
+    //METHODS
+    
+    public String strToBin(String get){
+        int num = Integer.parseInt(get);
+        int bin [] = new int [40];
+        int i = 0;
+        String binNum = "";
+        
+        while (num > 0){ //till the first number turns into 0
+            bin[i++] = num % 2;//gets remainder and add it to array
+            num /= 2; //divides to get the next number
+        }
+        
+        for (int o = i - 1; o >= 0; o--){
+            binNum += bin[o];
+        }
+        return binNum;
     }
 }
