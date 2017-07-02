@@ -1,5 +1,5 @@
-package helloworld;
-
+import java.nio.charset.Charset;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Basic {
@@ -304,41 +304,12 @@ public class Basic {
         checkNumbers(num, num1);
         
     }
-
-    private void checkNumbers(int num, int num1) {
-        if (num == num1){
-            System.out.printf("%d == %d\n", num, num1);
-        }
-        
-        if (num != num1){
-            System.out.printf("%d != %d\n", num, num1);
-        }
-        
-        if (num > num1){
-            System.out.printf("%d > %d\n", num, num1);
-        }
-        
-        if (num < num1){
-            System.out.printf("%d < %d\n", num, num1);
-        }
-    }
     
     public void ex33(){
         int val;
         System.out.print("Input value: ");
         val = input.nextInt();
         System.out.println("Digit sum is: " + dSum(val));
-    }
-
-    private int dSum(int num) {
-        int sum = 0;
-        
-        while (num != 0){
-            sum += num % 10;
-            num /= 10;
-        }
-        
-        return sum;
     }
     
     public void ex34(){
@@ -425,11 +396,71 @@ public class Basic {
                 letter, space, number, other);
     }
     
-       
+    public void ex39(){
+        int total = 0, a, b, c;
+        Random randmNumb = new Random();
+        while (total < 30){
+            a = 1 + randmNumb.nextInt(4);
+            b = 1 + randmNumb.nextInt(4);
+            c = 1 + randmNumb.nextInt(4);
+        
+            if (a != b && b != c && c != a){
+                System.out.println(a + "" + b + "" + c);
+                total++;
+            }  
+        }
+        
+        
+        System.out.println("Total numbers: " + total);
+    }
     
+    public void ex40(){
+        System.out.println("Available Character sets: ");
+        for (String str : Charset.availableCharsets().keySet()){
+            System.out.println(str);
+        }
+    }
+    
+    public void ex41(){
+        System.out.print("Input Character: ");
+        char character = input.next().charAt(0);
+        int ascii = 0;
+        ascii = character;
+        System.out.println("The ASCII value for character " 
+                + character + " is " + ascii);
+        
+    }
     
     
     //METHODS
+    private void checkNumbers(int num, int num1) {
+        if (num == num1){
+            System.out.printf("%d == %d\n", num, num1);
+        }
+        
+        if (num != num1){
+            System.out.printf("%d != %d\n", num, num1);
+        }
+        
+        if (num > num1){
+            System.out.printf("%d > %d\n", num, num1);
+        }
+        
+        if (num < num1){
+            System.out.printf("%d < %d\n", num, num1);
+        }
+    }
+    
+    private int dSum(int num) {
+        int sum = 0;
+        
+        while (num != 0){
+            sum += num % 10;
+            num /= 10;
+        }
+        
+        return sum;
+    }
     
     public String strToBin(String get){
         int num = Integer.parseInt(get);
