@@ -1,4 +1,4 @@
-package javaapplication17;
+package helloworld;
 
 import java.util.Scanner;
 
@@ -387,6 +387,45 @@ public class Basic {
         System.out.println("The distance between those points is: " + distance + "km");
     }
     
+    public void ex37(){
+        String user;
+        System.out.print("Input a string: ");
+        user = input.next();
+        
+        StringBuilder input1 = new StringBuilder();
+        
+        input1.append(user);
+        input1 = input1.reverse(); 
+        
+        System.out.println("Reverse String: " + input1);
+                
+    }
+    
+    public void ex38(){
+        String test;
+        System.out.print("Enter String to test: ");
+        test = input.nextLine();
+        char [] letters = test.toCharArray();
+        int letter = 0, space = 0, number = 0, other = 0;
+        
+        for (int i = 0; i < test.length(); i++){
+            if (Character.isLetter(letters[i])){
+                letter++;
+            } else if (Character.isSpaceChar(letters[i])){
+                space++;
+            } else if (Character.isDigit(letters[i])){
+                number++;
+            } else {
+                other++;
+            }
+        }
+        
+        System.out.println("String " + test);
+        System.out.printf("Letters: %d\nSpaces: %d\nNumbers: %d\nOthers: %d\n",
+                letter, space, number, other);
+    }
+    
+       
     
     
     
