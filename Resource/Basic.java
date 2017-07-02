@@ -1,4 +1,4 @@
-package javaing;
+package javaapplication17;
 
 import java.util.Scanner;
 
@@ -352,14 +352,43 @@ public class Basic {
     
     public void ex35(){
         double sides, length, area;
-        System.out.print("Input Poligon number of sides: ");
-        sides = input.nextDouble();
+        
         System.out.print("Input Poligon side length: ");
         length = input.nextDouble();
+        System.out.print("Input Poligon number of sides: ");
+        sides = input.nextDouble();
         
         area = ((sides * (Math.pow(length, 2))) / 4 * Math.tan(Math.PI/sides));
         System.out.println("The area is: " + area);
     }
+    
+    public void ex36(){
+        double latCord, lonCord, latCord1, lonCord1, earthRadius, distance;
+        earthRadius = 6371.01;
+        //[ (x1,y1) & (x2,y2)]
+        //EARTHRADIUS * arccos(sin(x1) * sin(x2) + cos(x1) * cos(x2) * cos(y1 - y2))
+        
+        System.out.print("Input the latitude of coordinate 1: ");
+        latCord = input.nextDouble();
+        System.out.print("Input the longitude of coordinate 1: ");
+        lonCord = input.nextDouble();
+        System.out.print("Input the latitude of coordinate 2: ");
+        latCord1 = input.nextDouble();
+        System.out.print("Input the longitude of coordinate 2: ");
+        lonCord1 = input.nextDouble();
+        
+        latCord = Math.toRadians(latCord);
+        latCord1 = Math.toRadians(latCord1);
+        lonCord = Math.toRadians(lonCord);
+        lonCord1 = Math.toRadians(lonCord1);
+        
+        distance = earthRadius * Math.acos(((Math.sin(latCord) * Math.sin(latCord1)) +
+                (Math.cos(latCord) * Math.cos(latCord1))) * Math.cos(lonCord - lonCord1));
+        System.out.println("The distance between those points is: " + distance + "km");
+    }
+    
+    
+    
     
     //METHODS
     
