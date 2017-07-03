@@ -462,7 +462,7 @@ public class Basic {
         return sum;
     }
     
-    public String strToBin(String get){
+    private String strToBin(String get){
         int num = Integer.parseInt(get);
         int bin [] = new int [40];
         int i = 0;
