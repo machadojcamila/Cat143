@@ -6,7 +6,7 @@ public class BinCalc143v1 {
     JOptionPane win = new JOptionPane();
     Scanner input = new Scanner(System.in);
     
-    public String toBin(String get){
+    private String toBin(String get){
         int num = Integer.parseInt(get);
         int bin [] = new int [40];
         int i = 0;
