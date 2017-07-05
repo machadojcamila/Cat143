@@ -3,16 +3,10 @@
 Cat143 Code Repository!
 ======================= 
 
-**Find every file from already done projects, classes and sources**
+**Guias de Ejercicios del Programa**
 
-Everything you need to know is basic Java concepts to be able to commit in this repository!
+##### - Mejorar Algoritmos
+Haz `Fork` en este repo y mejora los algoritmos y contirubuye con el codigo de las distintas guias que se nos presentan
 
-##### - Fix or Improve algorithms
-Some of these "projects" could have some issues, or maybe just need a fix to improve the algorithm
-
-##### - Share knowledge
-Java have at least 70000 (not official number) libraries to use!
-If you have some strategy or you can improve something don't keep it for you, make a `Pull Request`!
-
-##### - Star this repo!
-Keep it for you! Keep it up!
+##### - Compartir conocimientos
+Es la clave para mejorar nuestras habilidades, compartiendo lo que hacemos permitimos que otros tambien conozcan mejores rutinas y metodos de resolver un ejercicio, existen infinitos algoritmos que nos permitiran solucionar el problema pero siempre habran unos mas eficientes a otros
