@@ -50,8 +50,6 @@ public class G01 {
     
     public void mathOps(){
         //Receives: Two Values
-        //Returns: Addition, Substraction, Multiplication and Division
-        //of the two specified values
         System.out.println("G01 - E02");
         System.out.printf("User: %s // Mod: %d\n", getUserName(), getMod());
         int val, val1;
